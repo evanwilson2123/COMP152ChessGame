@@ -57,7 +57,7 @@ The project consists of the following classes:
 
 ### Additional Features and Enhancements
 
-- **Enhanced AI:** (Optional) Created a better AI for the computer player, prioritizing capturing moves over non-capturing moves
+- **Enhanced AI:** Created a better AI for the computer player, prioritizing capturing moves over non-capturing moves
 
 ## Compilation and Execution
 
