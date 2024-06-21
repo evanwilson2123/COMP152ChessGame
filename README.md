@@ -1,9 +1,5 @@
 # Chess COMP152
 
-## Overview
-
-This project implements a basic chess game in Java, following the provided assignment steps. The game includes a graphical user interface (GUI) for displaying the chessboard and pieces, and allows for both player and computer moves.
-
 ## Project Organization
 
 The project consists of the following classes:
