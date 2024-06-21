@@ -11,7 +11,7 @@ public class King extends Piece{
         }
     }
 
-    // DONE
+    // Ensure move is only 1 tile away, no need to check path
     public boolean canMove(int startx, int starty, int endx, int endy){
         if (
             (Math.abs(startx - endx) == 1 && Math.abs(starty - endy) == 0)

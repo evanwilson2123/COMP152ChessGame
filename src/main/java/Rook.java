@@ -13,7 +13,7 @@ public class Rook extends Piece{
         }
     }
 
-    // DONE
+    // make sure move is horizontal or vertical, check path is clear
     public boolean canMove(int startx, int starty, int endx, int endy){
         if (startx == endx || starty == endy) {
             int xDirection = Integer.compare(endx, startx);

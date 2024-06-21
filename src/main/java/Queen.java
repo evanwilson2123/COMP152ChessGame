@@ -11,12 +11,13 @@ public class Queen extends Piece{
         }
     }
 
-    // DONE
+    // can move in any direction, ensure path is clear
     public boolean canMove(int startx, int starty, int endx, int endy){
         int dx = Math.abs(startx - endx);
         int dy = Math.abs(starty - endy);
 
         if (dx == dy || startx == endx || starty == endy){
+            // check if change in direction is + or -
             int xDirection = Integer.compare(endx, startx);
             int yDirection = Integer.compare(endy, starty);
             int x = startx + xDirection;
@@ -31,7 +32,7 @@ public class Queen extends Piece{
             if (Chess.position[endx][endy] == null){
                 return true;
             } else if (getColor() != Chess.position[endx][endy].getColor()) {
-                return false;
+                return true;
             } else {
                 return false;
             }

@@ -11,7 +11,7 @@ public class Bishop extends Piece{
         }
     }
 
-    // DONE
+    // Ensure move is diagonal and path is clear
     public boolean canMove(int startx, int starty, int endx, int endy){
         int dx = Math.abs(startx - endx);
         int dy = Math.abs(starty - endy);
@@ -27,7 +27,7 @@ public class Bishop extends Piece{
         int y = starty + yDirection;
 
         while (x != endx && y != endy) {
-            if (Chess.position[x][y] != null) {
+            if (x < 0 || x > 7 || y < 0 || y > 7 || Chess.position[x][y] != null) {
                 return false;
             }
             x += xDirection;
