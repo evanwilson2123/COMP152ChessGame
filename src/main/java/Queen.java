@@ -17,14 +17,24 @@ public class Queen extends Piece{
         int dy = Math.abs(starty - endy);
 
         if (dx == dy || startx == endx || starty == endy){
+            int xDirection = Integer.compare(endx, startx);
+            int yDirection = Integer.compare(endy, starty);
+            int x = startx + xDirection;
+            int y = starty + yDirection;
+            while (x != endx || y != endy) {
+                if (Chess.position[x][y] != null) {
+                    return false;
+                }
+                x+=xDirection;
+                y+=yDirection;
+            }
             if (Chess.position[endx][endy] == null){
                 return true;
-            } else if (getColor() == Chess.position[endx][endy].getColor()) {
+            } else if (getColor() != Chess.position[endx][endy].getColor()) {
                 return false;
-            } else if (getColor() != Chess.position[endx][endy].getColor()){
-                return true;
+            } else {
+                return false;
             }
-            return false;
         }
         return false;
     }

@@ -15,40 +15,28 @@ public class Rook extends Piece{
 
     // DONE
     public boolean canMove(int startx, int starty, int endx, int endy){
-        if (startx - endx == 0 || starty - endy == 0) {
-            if (startx > endx) {
-                for (int i = startx-1; i > endx; i--) {
-                    if (Chess.position[i][starty] != null) {
-                        return false;
-                    }
+        if (startx == endx || starty == endy) {
+            int xDirection = Integer.compare(endx, startx);
+            int yDirection = Integer.compare(endy, starty);
+
+            int x = startx + xDirection;
+            int y = starty + yDirection;
+
+            while (x != endx || y != endy) {
+                if (Chess.position[x][y] != null) {
+                    return false;
                 }
-            } else if (startx < endx) {
-                for (int i = startx+1; i < endx; i++) {
-                    if (Chess.position[i][starty] != null) {
-                        return false;
-                    }
-                }
-            } else if (starty > endy) {
-                for (int i = starty-1; i > endy; i--) {
-                    if (Chess.position[startx][i] != null) {
-                        return false;
-                    }
-                }
+                x+=xDirection;
+                y+=yDirection;
+            }
+
+            if (Chess.position[endx][endy] == null) {
+                return true;
+            } else if (getColor() != Chess.position[endx][endy].getColor()) {
+                return true;
             } else {
-                for (int i = starty+1; i < endy; i++) {
-                    if (Chess.position[startx][i] != null) {
-                        return false;
-                    }
-                }
-            }
-            if (Chess.position[endx][endy] == null){
-                return true;
-            } else if (getColor() == Chess.position[endx][endy].getColor()) {
                 return false;
-            } else if (getColor() != Chess.position[endx][endy].getColor()){
-                return true;
             }
-            return false;
         }
         return false;
     }
